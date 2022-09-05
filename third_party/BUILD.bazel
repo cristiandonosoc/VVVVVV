@@ -1,7 +1,62 @@
+# FAudio -------------------------------------------------------------------------------------------
+
+cc_library(
+  name = "faudio",
+
+  hdrs = [
+    "FAudio/include/F3DAudio.h",
+    "FAudio/include/FACT.h",
+    "FAudio/include/FACT3D.h",
+    "FAudio/include/FAPO.h",
+    "FAudio/include/FAPOBase.h",
+    "FAudio/include/FAPOFX.h",
+    "FAudio/include/FAudio.h",
+    "FAudio/include/FAudioFX.h",
+  ],
+
+  includes = [
+    "FAudio/include",
+    "FAudio/src",
+  ],
+
+  srcs = [
+    "FAudio/src/F3DAudio.c",
+    "FAudio/src/FACT.c",
+    "FAudio/src/FACT3D.c",
+    "FAudio/src/FACT_internal.c",
+    "FAudio/src/FACT_internal.h",
+    "FAudio/src/FAPOBase.c",
+    "FAudio/src/FAPOFX.c",
+    "FAudio/src/FAPOFX_echo.c",
+    "FAudio/src/FAPOFX_eq.c",
+    "FAudio/src/FAPOFX_masteringlimiter.c",
+    "FAudio/src/FAPOFX_reverb.c",
+    "FAudio/src/FAudio.c",
+    "FAudio/src/FAudio_internal.c",
+    "FAudio/src/FAudio_internal.h",
+    "FAudio/src/FAudio_internal_simd.c",
+    "FAudio/src/FAudio_operationset.c",
+    "FAudio/src/FAudio_platform_sdl2.c",
+    "FAudio/src/FAudio_platform_win32.c",
+    "FAudio/src/FAudioFX_reverb.c",
+    "FAudio/src/FAudioFX_volumemeter.c",
+    "FAudio/src/matrix_defaults.inl",
+    "FAudio/src/stb.h",
+    "FAudio/src/stb_vorbis.h",
+    "FAudio/src/XNA_Song.c",
+  ],
+
+  deps = [
+    "//third_party:sdl2_lib",
+  ],
+
+  visibility = ["//visibility:public"],
+)
+
 # LodePNG ------------------------------------------------------------------------------------------
 
 cc_library(
-  name = "lodepng_lib",
+  name = "lodepng",
 
   srcs = [
     "lodepng/lodepng.cpp",
@@ -101,7 +156,7 @@ cc_library(
 # SDL2 Mixer ---------------------------------------------------------------------------------------
 
 cc_library(
-  name = "sdl2_mixer_lib",
+  name = "sdl2_mixer",
   deps = ["//third_party/sdl2_mixer/2.6.2/windows/msvc:sdl2_mixer"],
   visibility = ["//visibility:public"],
 )
