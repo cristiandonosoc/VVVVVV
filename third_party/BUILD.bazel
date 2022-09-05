@@ -1,0 +1,15 @@
+cc_library(
+  name = "lodepng",
+
+  srcs = [
+    "lodepng/lodepng.cpp",
+    "lodepng/lodepng.h",
+  ],
+
+  local_defines = [
+    "LODEPNG_NO_COMPILE_ALLOCATORS",
+    "LODEPNG_NO_COMPILE_DISK",
+    "LODEPNG_NO_COMPILE_ENCODER",
+  ],
+  visibility = ["//visibility:public"],
+)
