@@ -47,3 +47,22 @@ cc_library(
   includes = ["tinyxml2"],
   visibility = ["//visibility:public"],
 )
+
+# Utfcpp -------------------------------------------------------------------------------------------
+
+cc_library(
+  name = "utfcpp",
+  hdrs = [
+    "utfcpp/source/utf8.h",
+  ],
+  srcs = [
+    "utfcpp/source/utf8/checked.h",
+    "utfcpp/source/utf8/core.h",
+    "utfcpp/source/utf8/cpp11.h",
+    "utfcpp/source/utf8/cpp17.h",
+    "utfcpp/source/utf8/unchecked.h",
+  ],
+  includes = ["utfcpp/source"],
+  visibility = ["//visibility:public"],
+)
+
