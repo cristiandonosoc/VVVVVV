@@ -29,3 +29,12 @@ cc_library(
   deps = ["//third_party/sdl2/2.24.0/windows/msvc:main"],
   visibility = ["//visibility:public"],
 )
+
+# SDL2 Mixer ---------------------------------------------------------------------------------------
+
+cc_library(
+  name = "sdl2_mixer_lib",
+  deps = ["//third_party/sdl2_mixer/2.6.2/windows/msvc:sdl2_mixer"],
+  visibility = ["//visibility:public"],
+)
+

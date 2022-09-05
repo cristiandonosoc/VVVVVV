@@ -1,0 +1,43 @@
+cc_library(
+  name = "sdl2_mixer",
+  hdrs = ["include/SDL_mixer.h"],
+  includes = ["include"],
+
+  deps = [
+    ":lib",
+    ":ogg",
+    ":vorbis",
+    ":vorbisfile",
+  ],
+
+  visibility = ["//third_party:__pkg__"],
+)
+
+cc_import(
+  name = "lib",
+  interface_library = "lib/x64/SDL2_mixer.lib",
+  shared_library = "lib/x64/SDL2_mixer.dll",
+
+  visibility = ["//visibility:private"],
+)
+
+cc_import(
+  name = "vorbisfile",
+  shared_library = "lib/x64/libvorbisfile-3.dll",
+
+  visibility = ["//visibility:private"],
+)
+
+cc_import(
+  name = "vorbis",
+  shared_library = "lib/x64/libvorbis-0.dll",
+
+  visibility = ["//visibility:private"],
+)
+
+cc_import(
+  name = "ogg",
+  shared_library = "lib/x64/libogg-0.dll",
+
+  visibility = ["//visibility:private"],
+)
