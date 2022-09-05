@@ -38,3 +38,12 @@ cc_library(
   visibility = ["//visibility:public"],
 )
 
+# Tiny XML 2 ---------------------------------------------------------------------------------------
+
+cc_library(
+  name = "tinyxml2",
+  hdrs = ["tinyxml2/tinyxml2.h"],
+  srcs = ["tinyxml2/tinyxml2.cpp"],
+  includes = ["tinyxml2"],
+  visibility = ["//visibility:public"],
+)
