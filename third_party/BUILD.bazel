@@ -16,6 +16,74 @@ cc_library(
   visibility = ["//visibility:public"],
 )
 
+# PhysFS -------------------------------------------------------------------------------------------
+
+cc_library(
+  name = "physfs",
+
+  hdrs = [
+    "physfs/src/physfs.h",
+    "physfs/src/physfs_casefolding.h",
+    "physfs/src/physfs_internal.h",
+    "physfs/src/physfs_lzmasdk.h",
+    "physfs/src/physfs_miniz.h",
+    "physfs/src/physfs_platforms.h",
+  ],
+
+  includes = [
+    "physfs/src",
+  ],
+
+  srcs = [
+    "physfs/src/physfs.c",
+    "physfs/src/physfs_archiver_7z.c",
+    "physfs/src/physfs_archiver_dir.c",
+    "physfs/src/physfs_archiver_grp.c",
+    "physfs/src/physfs_archiver_hog.c",
+    "physfs/src/physfs_archiver_iso9660.c",
+    "physfs/src/physfs_archiver_mvl.c",
+    "physfs/src/physfs_archiver_qpak.c",
+    "physfs/src/physfs_archiver_slb.c",
+    "physfs/src/physfs_archiver_unpacked.c",
+    "physfs/src/physfs_archiver_vdf.c",
+    "physfs/src/physfs_archiver_wad.c",
+    "physfs/src/physfs_archiver_zip.c",
+    "physfs/src/physfs_byteorder.c",
+    "physfs/src/physfs_unicode.c",
+
+    "physfs/extras/physfsrwops.c",
+    "physfs/extras/physfsrwops.h",
+
+    # TODO: Do correct platform definition support.
+    "physfs/src/physfs_platform_windows.c",
+    # "physfs/src/physfs_platform_android.c",
+    # "physfs/src/physfs_platform_apple.m",
+    # "physfs/src/physfs_platform_haiku.cpp",
+    # "physfs/src/physfs_platform_os2.c",
+    # "physfs/src/physfs_platform_posix.c",
+    # "physfs/src/physfs_platform_qnx.c",
+    # "physfs/src/physfs_platform_unix.c",
+    # "physfs/src/physfs_platform_winrt.cpp",
+  ],
+
+  local_defines = [
+    "PHYSFS_SUPPORTS_DEFAULT=0",
+    "PHYSFS_SUPPORTS_ZIP=1",
+  ],
+
+  linkopts = [
+    "advapi32.lib",
+    "shell32.lib",
+    "user32.lib",
+  ],
+
+  deps = [
+    "//third_party:sdl2_lib",
+  ],
+
+  visibility = ["//visibility:public"],
+)
+
 # SDL2 ---------------------------------------------------------------------------------------------
 
 cc_library(
