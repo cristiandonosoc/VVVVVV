@@ -1,0 +1,22 @@
+cc_library(
+		name = "lib",
+		hdrs = glob(["include/*.h"]),
+		includes = ["include"],
+		deps = [":import"],
+		visibility = ["//third_party:__pkg__"],
+)
+
+cc_import(
+		name = "main",
+		interface_library = "lib/x64/SDL2main.lib",
+		system_provided = True,
+		visibility = ["//third_party:__pkg__"],
+)
+
+cc_import(
+		name = "import",
+		interface_library = "lib/x64/SDL2.lib",
+		shared_library = "lib/x64/SDL2.dll",
+
+		visibility = ["//visibility:private"],
+)

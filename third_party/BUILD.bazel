@@ -1,5 +1,7 @@
+# LodePNG ------------------------------------------------------------------------------------------
+
 cc_library(
-  name = "lodepng",
+  name = "lodepng_lib",
 
   srcs = [
     "lodepng/lodepng.cpp",
@@ -11,5 +13,19 @@ cc_library(
     "LODEPNG_NO_COMPILE_DISK",
     "LODEPNG_NO_COMPILE_ENCODER",
   ],
+  visibility = ["//visibility:public"],
+)
+
+# SDL2 ---------------------------------------------------------------------------------------------
+
+cc_library(
+  name = "sdl2_lib",
+  deps = ["//third_party/sdl2/2.24.0/windows/msvc:lib"],
+  visibility = ["//visibility:public"],
+)
+
+cc_library(
+  name = "sdl2_main",
+  deps = ["//third_party/sdl2/2.24.0/windows/msvc:main"],
   visibility = ["//visibility:public"],
 )
