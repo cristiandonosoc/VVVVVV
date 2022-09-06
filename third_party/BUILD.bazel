@@ -63,10 +63,15 @@ cc_library(
     "lodepng/lodepng.h",
   ],
 
+  includes = [
+    "lodepng",
+  ],
+
   local_defines = [
     "LODEPNG_NO_COMPILE_ALLOCATORS",
     "LODEPNG_NO_COMPILE_DISK",
     "LODEPNG_NO_COMPILE_ENCODER",
+    "LODEPNG_COMPILE_ERROR_TEXT",
   ],
   visibility = ["//visibility:public"],
 )
@@ -87,6 +92,7 @@ cc_library(
 
   includes = [
     "physfs/src",
+    "physfs/extras",
   ],
 
   srcs = [

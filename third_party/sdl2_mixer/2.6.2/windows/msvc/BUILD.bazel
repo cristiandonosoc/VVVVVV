@@ -6,8 +6,8 @@ cc_library(
   deps = [
     ":lib",
     ":ogg",
-    ":vorbis",
-    ":vorbisfile",
+    # ":vorbis",
+    # ":vorbisfile",
   ],
 
   visibility = ["//third_party:__pkg__"],
@@ -37,7 +37,7 @@ cc_import(
 
 cc_import(
   name = "ogg",
-  shared_library = "lib/x64/libogg-0.dll",
+  shared_library = "lib/x64/optional/libogg-0.dll",
 
   visibility = ["//visibility:private"],
 )
